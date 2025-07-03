@@ -1,4 +1,4 @@
-# 📊 Use Case – Retail Promotion Analytics avec Data Vault & Power BI
+# 📊 Use Case – Retail Promotion Analytics avec Data Vault & Power BI 
 
 👤 Auteur : Etienne ZONON  
 📅 Date : Juillet 2025  
