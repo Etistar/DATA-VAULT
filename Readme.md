@@ -146,6 +146,7 @@ Visualisations créées :
 
 📁 Fichier Power BI : ./dashboard/report.pbix
 
+![Mon schéma](docs/PowerBI_retail.PNG)
 ---
 
 ## 7. Cas d’usage & KPI créés
