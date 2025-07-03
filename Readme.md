@@ -88,7 +88,9 @@ retail-promo-bi/
 
 ## 3. Modélisation Data Vault
 
-Architecture Raw Vault + Business Vault.
+Architecture Raw Vault 
+
+![Mon schéma](docs/Architecture_vault.PNG)
 
 ### 3.1 Hubs
 
