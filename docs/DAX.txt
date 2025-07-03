@@ -1,0 +1,24 @@
+TopProducts = 
+VAR ProductsRanked = 
+    RANKX(
+        ALL(fact_sales_prom[product_id]),
+        CALCULATE(SUM('fact_sales_prom'[total_sales]))
+    )
+RETURN
+IF(ProductsRanked <= 5, 1, 0)
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+
+promo_sales = CALCULATE(SUM(fact_sales_prom[total_sales]), fact_sales_prom[promo_flag] = 1)
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+Statut_promo = 
+SWITCH(
+    TRUE(),
+    SELECTEDVALUE(fact_sales_prom[promo_flag]) = 1, "Promo",
+    SELECTEDVALUE(fact_sales_prom[promo_flag]) = 0, "Non Promo",
+    "Inconnu"
+)
