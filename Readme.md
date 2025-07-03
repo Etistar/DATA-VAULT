@@ -31,7 +31,7 @@ Il permet de suivre les performances de ventes en lien avec les campagnes market
 
 ## 2. Données utilisées et aborescence
 
-Données provenant de Kaggle : données synthétiques sur les ventes par produit, région, date, avec colonnes suivantes :
+Données provenant de Kaggle : données synthétiques sur les ventes par produit, store, date, avec colonnes suivantes :
 
 # Description des colonnes de notre dataframe 
 
@@ -93,12 +93,12 @@ Architecture Raw Vault + Business Vault.
 ### 3.1 Hubs
 
 - Hub_Product (clé : product_id)  
-- Hub_Region (clé : region)  
+- Hub_Store (clé : Store)  
 - Hub_Date (clé : date)
 
 ### 3.2 Links
 
-- Link_Sale (relation entre produit, région, date)
+- Link_Sale (relation entre produit, store, date)
 
 ### 3.3 Satellites
 
@@ -116,7 +116,7 @@ Scripts SQL utilisés pour :
 - Générer les hashkeys  
 - Insérer les données depuis la staging table
 
-📁 Voir : ./sql/ingestion_raw_vault.sql
+📁 Voir : ./notebook/silver.ipynb
 
 > Des tests de qualité sont réalisés sur la table finale : nulls, ROI négatif, doublons.
 
@@ -128,10 +128,11 @@ Création d’une table analytique fact_sales_promo :
 
 - Base : vue PIT_Sale (via jointure Hubs + Link + Sat)  
 - Table finale : matérialisée en Delta format (CREATE OR REPLACE TABLE ...)  
-- Colonnes : product_id, region, date, promo_flag, revenue, ROI, etc.
+- Colonnes : product_id, Store, date, promo_flag, revenue, ROI, etc.
 
 Cette table est exposée à Power BI via Direct Lake ou SQL Endpoint.
 
+📁 Voir : ./notebook/gold.ipynb
 ---
 
 ## 6. Vue analytique dans Power BI
@@ -140,7 +141,7 @@ Visualisations créées :
 
 - KPI : CA total, CA promo, ROI moyen  
 - Graphique : top 5 produits en promotion (CA)  
-- Carte : performances par région  
+- Carte : performances par store  
 - Segments interactifs : période, produit, promo ou non
 
 📁 Fichier Power BI : ./dashboard/report.pbix
@@ -150,11 +151,11 @@ Visualisations créées :
 ## 7. Cas d’usage & KPI créés
 
 - CA généré sous promotion  
-- ROI promo = revenue / marketing  
+- ROI promo = revenue / marketing -- Voir le notebook Gold  
 - Répartition ventes promo vs non-promo  
-- Analyse par région, par période, par produit
+- Analyse par Store, par période, par produit
 
-📁 Les mesures DAX utilisées sont documentées dans : ./dax/measures.md
+📁 Les mesures DAX utilisées sont documentées dans : ./documents/measures.md
 
 ---
 
