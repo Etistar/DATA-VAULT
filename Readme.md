@@ -1,4 +1,4 @@
-# 📊 Use Case – Retail Promotion Analytics avec Data Vault & Power BI
+# Use Case – Retail Promotion Analytics avec Data Vault & Power BI
 
 👤 Auteur : Etienne ZONON  
 📅 Date : Juillet 2025  
@@ -120,6 +120,9 @@ Scripts SQL utilisés pour :
 
 📁 Voir : ./notebook/silver.ipynb
 
+Vous trouverez le Data lineage dans le schéma en dessous 
+
+![Mon schéma](docs/Data_lineage.PNG)
 > Des tests de qualité sont réalisés sur la table finale : nulls, ROI négatif, doublons.
 
 ---
