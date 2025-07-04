@@ -27,6 +27,21 @@
 Ce projet simule une analyse promotionnelle dans un contexte retail à l’aide d’une architecture moderne (Data Vault 2.0) hébergée sur Microsoft Fabric.  
 Il permet de suivre les performances de ventes en lien avec les campagnes marketing et de construire des KPI fiables dans Power BI.
 
+Après discussion avec le métier, il désire suivre l’impact des promotions sur les ventes hebdomadaires, régionales et produits.
+Ensemble, il a été défini:
+
+KPI demandés :
+- CA total par semaine et région
+- CA sous promo vs sans promo
+- ROI marketing par semaine
+- Top 5 produits promo
+
+Filtrage :
+- Par région
+- Par produit
+- Par période
+- Par promo_flag (promo ou non)
+
 ---
 
 ## 2. Données utilisées et aborescence
@@ -138,6 +153,7 @@ Création d’une table analytique fact_sales_promo :
 Cette table est exposée à Power BI via Direct Lake ou SQL Endpoint.
 
 📁 Voir : ./notebook/gold.ipynb
+
 ---
 
 ## 6. Vue analytique dans Power BI
