@@ -9,7 +9,7 @@
 ## Sommaire
 
 - [1. Contexte](#1--contexte)
-- [2. Données utilisées et aborescence](#2--données-utilisées et aborescence)
+- [2. Données utilisées et aborescence](#2--données-utilisées-et-aborescence)
 - [3. Modélisation Data Vault](#3--modélisation-data-vault)
   - [3.1 Hubs](#31--hubs)
   - [3.2 Links](#32--links)
