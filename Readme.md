@@ -121,7 +121,17 @@ Architecture Raw Vault
 
 - Sat_Sale (colonnes : units_sold, revenue, promo_pct, marketing_spend, holiday_flag)
 
+
 > Clés générées par hash MD5, ingestion incrémentale, respect des bonnes pratiques.
+
+Avantages :
+- Historisation native (ex. : changement de prix ou profil client)
+- Scalabilité et adaptation aux changements de structure
+- Parfait pour les environnements multi-sources et cloud
+  
+Limites :
+- Complexité élevée
+- Nécessite une couche de transformation pour l’analyse BI
 
 ---
 
