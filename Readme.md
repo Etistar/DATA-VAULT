@@ -105,7 +105,70 @@ retail-promo-bi/
 
 Architecture Raw Vault 
 
-![Mon schéma](docs/Architecture_vault.PNG)
+Le Data Vault est une architecture moderne d’entrepôt de données (DWH) conçue pour gérer des données à grande échelle, en provenance de sources multiples, tout en assurant :
+- l’auditabilité,
+
+- la traçabilité,
+
+- l’historisation,
+
+- et la flexibilité.
+
+"""text
+
+# Schéma Data Vault — Modèle Retail
+
+Ce modèle suit la structure Data Vault 2.0 pour une analyse des ventes en lien avec les promotions.  
+Il est basé sur 3 entités principales : Produit, Région, Date.
+
+```text
+
+- Hub : Clé métier unique (produit, région, date…)
+- Link : Fait de liaison entre plusieurs Hubs
+- Satellite : Attributs historisés (mesures, dimensions, contexte)
+
+                  Link_Sale
+                  ------------
+                  link_sale_hashkey (PK)
+                  hub_product_hashkey (FK)
+                  hub_region_hashkey  (FK)
+                  hub_date_hashkey    (FK)
+                  load_dts
+                  record_src
+                        ▲
+                        │
+─────────────────────────────────────────────────────────
+      ▲                     ▲                   ▲
+      │                     │                   │
+      │                     │                   │
+      │                     │                   │
+      │                     │                   │
+
+Hub_Product           Hub_Region              Hub_Date
+--------------     --------------       --------------
+hub_product_hashkey(PK)  hub_region_hashkey(PK)  hub_date_hashkey(PK)
+product_id              region               date
+load_dts                load_dts             load_dts
+record_src              record_src           record_src
+
+                            │
+                            │
+                            ▼
+
+                          Sat_Sale
+                -------------------------------
+                link_sale_hashkey (FK)
+                units_sold
+                sales_revenue
+                promo_pct
+                marketing_spend
+                holiday_flag
+                hash_diff
+                load_dts
+                record_src
+
+
+"""
 
 ### 3.1 Hubs
 
