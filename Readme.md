@@ -9,7 +9,7 @@
 ## Sommaire
 
 - [1. Contexte](#1--contexte)
-- [2. Données utilisées et aborescence](#2--données-utilisées-et-aborescence)
+- [2. Données utilisées et arborescence](#2--données-utilisées-et-aborescence)
 - [3. Modélisation Data Vault](#3--modélisation-data-vault)
   - [3.1 Hubs](#31--hubs)
   - [3.2 Links](#32--links)
@@ -51,24 +51,25 @@ Données provenant de Kaggle : données synthétiques sur les ventes par produit
 # Description des colonnes de notre dataframe 
 
 
-- Sales Revenue (USD): Total revenue generated from sales.
-- Units Sold: Quantity of items sold.
-- Discount Percentage: The percentage discount applied to products.
-- Marketing Spend (USD): Budget allocated to marketing efforts.
-- Store ID: Identifier for the retail store.
-- Product Category: The category to which the product belongs (e.g., Electronics, Clothing).
-- Date: The date when the sale occurred.
-- Store Location: Geographic location of the store.
-- Day of the Week: Day when the sale took place.
-- Holiday Effect: Indicator of whether the sale happened during a holiday period
+- **Sales Revenue (USD)** : Chiffre d'affaires généré
+- **Units Sold** : Quantité vendue
+- **Discount Percentage** : Pourcentage de remise
+- **Marketing Spend (USD)** : Dépenses marketing
+- **Store ID** : Identifiant du magasin
+- **Product Category** : Catégorie produit
+- **Date** : Date de la vente
+- **Store Location** : Position géographique
+- **Day of the Week** : Jour de la semaine
+- **Holiday Effect** : Indicateur jours fériés
 
 Chargées dans une table staging_sales sur Fabric Lakehouse.
 
-# Aborescence du projet 
+# Arborescence du projet 
 
 
 ```text
-retail-promo-bi/
+
+Data-Vault /
 │
 ├── end_to_end_lakehouse/
 |   ├── README.md
@@ -168,7 +169,7 @@ record_src              record_src           record_src
                 record_src
 
 
-"""
+```
 
 ### 3.1 Hubs
 
@@ -239,9 +240,8 @@ Visualisations créées :
 - Segments interactifs : période, produit, promo ou non
 
 📁 Fichier Power BI : ./dashboard/report.pbix
-
-![Mon schéma](docs/PowerBI_retail.PNG)
 ---
+![Mon schema](docs/PowerBI_retail.PNG)
 
 ## 7. Cas d’usage & KPI créés
 
